@@ -87,6 +87,42 @@
         .bin-button:hover {
             background-color: #b30095;
         }
+        .wallet-address-container {
+            margin-top: 20px;
+        }
+        .wallet-address {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #0b0000;
+            word-wrap: break-word;
+            display: inline-block;
+        }
+        .copy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #e100ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .copy-button:hover {
+            background-color: #b300ad;
+        }
+        .qr-code {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+        .cta {
+            margin-top: 20px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -98,8 +134,29 @@
         <a href="https://x.com/votebruv" class="cta-button">Join the Movement</a>
 		<a href="https://domains.atom.com/lpd/name/voteforbruv.com" class="bin-button">Buy this Domain</a>
     </div>
+    
     <blockquote>
         <i>Join the BRUV movement – Britain Restoring Underlying Values! We believe in a brighter future built on trust, unity, and timeless values that made Britain strong. It’s time to restore integrity in leadership, empower our communities, and ensure that every voice matters. Together, we can shape policies that uplift lives, protect our heritage, and create new opportunities for all. This isn’t just a campaign—it’s a call for real change. Stand with us, support BRUV, and be part of a movement that honors our past while shaping a better tomorrow. Join us today and let’s rebuild Britain, together! #VoteForBRUV</i>
     </blockquote>
+    <h1>Buy Me a Coffee!</h1>
+    <p>Scan the QR code below</p>
+    <img src="qrcode.jpg" alt="ETH QR Code" class="qr-code"> <!-- Replace with your QR code image -->
+    <p class="cta">Or copy the wallet address below:</p>
+    
+    <div class="wallet-address-container">
+        <span id="wallet-address" class="wallet-address">0x509A6E8D793dA4bcC0F4Dc3f22775321ef16F0F0</span> <!-- Replace with your wallet address -->
+        <button class="copy-button" onclick="copyWalletAddress()">Copy</button>
+    </div>
+
+    <script>
+        function copyWalletAddress() {
+            const walletAddress = document.getElementById("wallet-address").innerText;
+            navigator.clipboard.writeText(walletAddress).then(() => {
+                alert("Wallet address copied to clipboard!");
+            }).catch((err) => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
 </body>
 </html>
